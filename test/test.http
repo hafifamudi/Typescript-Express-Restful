@@ -1,0 +1,42 @@
+### Endpoint GET /users
+GET http://localhost:3000/users/
+
+### Enpoinrt POST /users
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+    "id": 10,
+    "name": "John Smith"
+}
+
+### Endpoint put /users
+PUT http://localhost:3000/users/1
+content-type: application/json
+
+{
+    "name": "John Adit"
+}
+
+### Endpoint delete /users
+DELETE http://localhost:3000/users/1
+content-type: application/json
+
+
+### Endpoint register /auth
+POST http://localhost:3000/api/v1/auth/register
+content-type: application/json
+
+{
+    "username": "Pablo",
+    "password": "testing123"
+}
+
+### Endpoint login /auth
+POST http://localhost:3000/api/v1/auth/login
+content-type: application/json
+
+{
+    "username": "Pablo",
+    "password": "testing123"
+}
