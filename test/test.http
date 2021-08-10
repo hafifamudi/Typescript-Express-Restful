@@ -44,3 +44,8 @@ content-type: application/json
 ### Enpoint profile /auth
 GET http://localhost:3000/api/v1/auth/profile
 Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoiUGFibG8iLCJwYXNzd29yZCI6InRlc3RpbmcxMjMiLCJpYXQiOjE2Mjg1NjEwMzl9.X1_jOeATS4cAVYjUDYeDVakmE1jiXHmqwjqYVCLKgbM
+
+
+### Endpoint todos /todos
+GET http://localhost:3000/api/v1/todos
+content-type: application/json

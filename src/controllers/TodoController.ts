@@ -1,30 +1,53 @@
 import {Request, Response} from 'express';
 
 import IController from './ControllerInterface'
+import TodoService from '../services/TodoService'
 
 class TodoController implements IController {
-    index(req: Request, res: Response):Response {
-        return res.send("index todo");
-    }
-    create(req: Request, res: Response):Response {
-       
-
-        return res.send("create sukses"); 
-    }
-    show(req: Request, res: Response):Response {
-      
-
-        return res.send("show todo");
-    }
-    update(req: Request, res: Response):Response {
-    
-
-        return res.send("sukses update")
-    }
-    delete(req: Request, res: Response):Response {
-
+    index =  async (req: Request, res: Response):Promise<Response> => {
+        const service:TodoService = new TodoService(req);
+        const todos = await service.getAll();
         
-        return res.send("delete todo");
+        return res.send({
+            data: todos,
+            message: ""
+        })
+    }
+    create = async (req: Request, res: Response):Promise<Response> => {
+        const service: TodoService = new TodoService(req);
+        const todo = await service.store();
+
+        return res.send({
+            data: todo,
+            message: "todo created"
+        });
+    }
+    show = async (req: Request, res: Response):Promise<Response> => {
+        const service: TodoService = new TodoService(req);
+        const todo = await service.getOne();
+
+        return res.send({
+            data: todo,
+            message: ""
+        });
+    }
+    update = async (req: Request, res: Response):Promise<Response> => {
+        const service: TodoService = new TodoService(req);
+        const todo = await service.update();
+
+        return res.send({
+            data: todo,
+            message: "todo updated"
+        });
+    }
+    delete = async (req: Request, res: Response):Promise<Response> => {
+        const service: TodoService = new TodoService(req);
+        const todo = await service.delete();
+
+        return res.send({
+            data: todo,
+            message: "todo deleted"
+        });
     }
 }
 
