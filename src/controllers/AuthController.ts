@@ -42,6 +42,10 @@ class AuthController{
         return res.send("login failed");
     }
 
+    profile =  (req:Request, res:Response):Response => {
+        return res.send("ini adalah profile section");
+    }
+
 }
 
 export default new AuthController();
